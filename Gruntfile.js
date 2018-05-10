@@ -13,32 +13,36 @@ module.exports = function(grunt) {
       dev: {
         options: {
           engine: 'im',
-          sizes: [{
-            /* Change these */
-            width: 1600,
-            suffix: '_large_2x',
-            quality: 30
-          }]
+          sizes: [
+            {
+              /* Change these */
+              width: 1000,
+              suffix: '_medium_2x',
+              quality: 30
+            }
+          ]
         },
 
         /*
         You don't need to change this part if you don't change
         the directory structure.
         */
-        files: [{
-          expand: true,
-          src: ['*.{gif,jpg,png}'],
-          cwd: 'images_src/',
-          dest: 'images/'
-        }]
+        files: [
+          {
+            expand: true,
+            src: ['*.{gif,jpg,png}'],
+            cwd: 'images_src/',
+            dest: 'images/'
+          }
+        ]
       }
     },
 
     /* Clear out the images directory if it exists */
     clean: {
       dev: {
-        src: ['images'],
-      },
+        src: ['images']
+      }
     },
 
     /* Generate the images directory if it is missing */
@@ -46,10 +50,9 @@ module.exports = function(grunt) {
       dev: {
         options: {
           create: ['images']
-        },
-      },
-    },
-
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-responsive-images');
